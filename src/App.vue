@@ -1,10 +1,36 @@
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
+import { onMounted } from "vue";
 import Greet from "./components/Greet.vue";
+import { appWindow } from '@tauri-apps/api/window'
+
+
+onMounted(() => {
+  document
+    .getElementById('titlebar-minimize')
+    .addEventListener('click', () => appWindow.minimize())
+  document
+    .getElementById('titlebar-maximize')
+    .addEventListener('click', () => appWindow.toggleMaximize())
+  document
+    .getElementById('titlebar-close')
+    .addEventListener('click', () => appWindow.close())
+})
 </script>
 
 <template>
+  <div data-tauri-drag-region class="titlebar">
+    <div class="titlebar-button" id="titlebar-minimize">
+      <img src="https://api.iconify.design/mdi:window-minimize.svg" alt="minimize" />
+    </div>
+    <div class="titlebar-button" id="titlebar-maximize">
+      <img src="https://api.iconify.design/mdi:window-maximize.svg" alt="maximize" />
+    </div>
+    <div class="titlebar-button" id="titlebar-close">
+      <img src="https://api.iconify.design/mdi:close.svg" alt="close" />
+    </div>
+  </div>
   <div class="container">
     <h1>Welcome to Tauri!</h1>
 
@@ -28,13 +54,9 @@ import Greet from "./components/Greet.vue";
       +
       <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
       +
-      <a href="https://github.com/tauri-apps/tauri-vscode" target="_blank"
-        >Tauri</a
-      >
+      <a href="https://github.com/tauri-apps/tauri-vscode" target="_blank">Tauri</a>
       +
-      <a href="https://github.com/rust-lang/rust-analyzer" target="_blank"
-        >rust-analyzer</a
-      >
+      <a href="https://github.com/rust-lang/rust-analyzer" target="_blank">rust-analyzer</a>
     </p>
 
     <Greet />
@@ -42,6 +64,31 @@ import Greet from "./components/Greet.vue";
 </template>
 
 <style scoped>
+.titlebar {
+  height: 30px;
+  background: #329ea3;
+  user-select: none;
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.titlebar-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+}
+
+.titlebar-button:hover {
+  background: #5bbec3;
+}
+
+
 .logo.vite:hover {
   filter: drop-shadow(0 0 2em #747bff);
 }
