@@ -43,13 +43,16 @@
     "security": {
       "csp": null
     },
+    "macOSPrivateApi": true,
     "windows": [
       {
-        "fullscreen": false,
-        "resizable": true,
         "title": "K8s Operator Tester",
         "width": 800,
-        "height": 600
+        "height": 600,
+        "resizable": true,
+        "fullscreen": false,
+        "transparent": true,
+        "decorations": false
       }
     ]
   }
