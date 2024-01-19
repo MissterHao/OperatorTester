@@ -1,9 +1,11 @@
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import { onMounted } from "vue";
+import { onMounted, ref } from "vue";
 import TitleBar from "./components/TitleBar.vue";
 import { appWindow } from '@tauri-apps/api/window'
+
+const greetToName = ref("aaaa");
 
 
 onMounted(() => {
@@ -25,6 +27,10 @@ onMounted(() => {
     <h1>Welcome to Tauri!</h1>
     <router-link to="/greet">打個招呼吧</router-link>
     <router-link to="/yell">叫一下</router-link>
+    <router-link :to="'/greet/' + greetToName">跟 {{ greetToName }} 打招呼</router-link>
+
+
+    <input v-model="greetToName" placeholder="Enter a name..." />
 
     <!-- 路由匹配到的组件将渲染在这里 -->
     <router-view></router-view>
