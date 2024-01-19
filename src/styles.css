@@ -4,8 +4,8 @@
   line-height: 24px;
   font-weight: 400;
 
-  color: #0f0f0f;
-  background-color: #f6f6f6;
+  color: white;
+  /* background-color: #f6f6f6; */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,6 +13,22 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
+
+html,
+body {
+  background: transparent;
+  height: 100vh;
+  width: 100vw;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+}
+
 
 .container {
   margin: 0;
@@ -74,6 +90,7 @@ button {
 button:hover {
   border-color: #396cd8;
 }
+
 button:active {
   border-color: #396cd8;
   background-color: #e8e8e8;
@@ -90,8 +107,8 @@ button {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    color: #f6f6f6;
-    background-color: #2f2f2f;
+    color: #fbfbfb;
+    /* background-color: #2f2f2f; */
   }
 
   a:hover {
@@ -103,6 +120,7 @@ button {
     color: #ffffff;
     background-color: #0f0f0f98;
   }
+
   button:active {
     background-color: #0f0f0f69;
   }

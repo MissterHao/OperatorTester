@@ -15,12 +15,23 @@
       "shell": {
         "all": false,
         "open": true
+      },
+      "window": {
+        "all": false,
+        "close": true,
+        "hide": true,
+        "show": true,
+        "maximize": true,
+        "minimize": true,
+        "unmaximize": true,
+        "unminimize": true,
+        "startDragging": true
       }
     },
     "bundle": {
       "active": true,
       "targets": "all",
-      "identifier": "com.tauri.dev",
+      "identifier": "com.henryliking.dev",
       "icon": [
         "icons/32x32.png",
         "icons/128x128.png",
@@ -32,13 +43,16 @@
     "security": {
       "csp": null
     },
+    "macOSPrivateApi": true,
     "windows": [
       {
-        "fullscreen": false,
-        "resizable": true,
-        "title": "operatortester",
+        "title": "K8s Operator Tester",
         "width": 800,
-        "height": 600
+        "height": 600,
+        "resizable": true,
+        "fullscreen": false,
+        "transparent": true,
+        "decorations": false
       }
     ]
   }
