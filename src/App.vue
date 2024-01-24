@@ -33,7 +33,8 @@ onMounted(() => {
     <input v-model="greetToName" placeholder="Enter a name..." />
 
     <!-- 路由匹配到的组件将渲染在这里 -->
-    <router-view></router-view>
+    <!-- 這種寫法才可以及時改變 -->
+    <router-view :xd="greetToName"></router-view>
   </div>
 </template>
 
