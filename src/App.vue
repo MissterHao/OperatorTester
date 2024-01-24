@@ -29,6 +29,7 @@ onMounted(() => {
     <router-link to="/yell">叫一下</router-link>
     <router-link :to="'/greet/' + greetToName">跟 {{ greetToName }} 打招呼</router-link>
 
+    <h1>YOOOO - {{ $t("subTitle.installedCliPlugins") }}</h1>
 
     <input v-model="greetToName" placeholder="Enter a name..." />
 
